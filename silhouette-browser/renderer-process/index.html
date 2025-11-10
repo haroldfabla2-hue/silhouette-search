@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silhouette Browser V4.0 - Configuración Avanzada</title>
+    <title>Silhouette Browser V5.0 - La Plataforma de Desarrollo Más Avanzada</title>
     <style>
         * {
             margin: 0;
@@ -1336,7 +1336,8 @@
             <div class="ai-header">
                 <div class="ai-title">🤖 Silhouette Browser V4.0</div>
                 <div class="ai-tabs">
-                    <button class="ai-tab active" data-tab="chat">Chat</button>
+                    <button class="ai-tab active" data-tab="ide-sandbox">🚀 IDE & Sandbox</button>
+                    <button class="ai-tab" data-tab="chat">Chat</button>
                     <button class="ai-tab" data-tab="models">Modelos</button>
                     <button class="ai-tab" data-tab="apis">APIs</button>
                     <button class="ai-tab" data-tab="teams">Equipos</button>
@@ -1349,12 +1350,18 @@
 
             <div class="ai-content">
                 <!-- Chat Tab -->
-                <div class="tab-content active" id="chatTab">
+                <div class="tab-content active" id="ideSandboxTab">
+                    <iframe src="ide-ui/ide-sandbox.html" 
+                            style="width: 100%; height: 100%; border: none; background: #0E0E10;" 
+                            id="ideSandboxFrame"></iframe>
+                </div>
+
+                <div class="tab-content" id="chatTab">
                     <div class="chat-container">
                         <div class="chat-messages" id="chatMessages">
                             <div class="welcome-message">
                                 <div class="welcome-icon">🚀</div>
-                                <h3>Silhouette Browser V4.0</h3>
+                                <h3>Silhouette Browser V5.0</h3>
                                 <p>El navegador de IA más avanzado del mundo</p>
                                 <p>Configura tus APIs y equipos para comenzar</p>
                             </div>
@@ -2666,17 +2673,21 @@
                 switch (e.key) {
                     case '1':
                         e.preventDefault();
-                        ui.switchTab('chat');
+                        ui.switchTab('ide-sandbox');
                         break;
                     case '2':
                         e.preventDefault();
-                        ui.switchTab('models');
+                        ui.switchTab('chat');
                         break;
                     case '3':
                         e.preventDefault();
-                        ui.switchTab('apis');
+                        ui.switchTab('models');
                         break;
                     case '4':
+                        e.preventDefault();
+                        ui.switchTab('apis');
+                        break;
+                    case '5':
                         e.preventDefault();
                         ui.switchTab('teams');
                         break;
