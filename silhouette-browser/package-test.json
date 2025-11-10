@@ -1,0 +1,1 @@
+{"name": "silhouette-browser-test", "version": "1.0.0", "main": "main-process/app-manager/main.js", "type": "module", "scripts": {"test": "npx electron main-process/app-manager/main.js"}, "devDependencies": {"electron": "^32.2.0"}}

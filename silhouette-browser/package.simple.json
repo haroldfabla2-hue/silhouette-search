@@ -1,0 +1,14 @@
+{
+  "name": "silhouette-browser-test",
+  "version": "5.3.0",
+  "main": "main-process/app-manager/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "node demo-modo-agente-completo.js",
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron ."
+  },
+  "devDependencies": {
+    "electron": "^32.2.0"
+  }
+}
