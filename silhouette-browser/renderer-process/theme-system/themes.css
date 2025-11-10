@@ -1,0 +1,418 @@
+/* =============================================================================
+   SILHOUETTE V5.2 - SISTEMA DE TEMAS AVANZADO
+   CSS Variables para temas dinámicos + Prevención de FOUC
+   ============================================================================= */
+
+/* =============================================================================
+   VARIABLES BASE - TEMA CLARO (LIGHT)
+   ============================================================================= */
+:root {
+  /* Colores Primarios */
+  --primary-color: #007ACC;
+  --primary-hover: #005C99;
+  --primary-light: #4DABF7;
+  --primary-dark: #0056A3;
+  
+  /* Colores Secundarios */
+  --secondary-color: #6C757D;
+  --success-color: #28A745;
+  --warning-color: #FFC107;
+  --danger-color: #DC3545;
+  --info-color: #17A2B8;
+  
+  /* Colores de Fondo */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  --bg-tertiary: #E9ECEF;
+  --bg-accent: #E3F2FD;
+  --bg-overlay: rgba(255, 255, 255, 0.95);
+  
+  /* Colores de Texto */
+  --text-primary: #2D3748;
+  --text-secondary: #4A5568;
+  --text-muted: #718096;
+  --text-inverse: #FFFFFF;
+  --text-link: var(--primary-color);
+  
+  /* Colores de Bordes */
+  --border-color: #E2E8F0;
+  --border-light: #F7FAFC;
+  --border-dark: #CBD5E0;
+  --border-focus: var(--primary-color);
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Tipografía */
+  --font-family-base: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Componentes Específicos */
+  --header-bg: var(--bg-primary);
+  --sidebar-bg: var(--bg-secondary);
+  --panel-bg: var(--bg-primary);
+  --button-bg: var(--primary-color);
+  --button-text: var(--text-inverse);
+  --input-bg: var(--bg-primary);
+  --input-border: var(--border-color);
+  --modal-bg: var(--bg-primary);
+  --tooltip-bg: var(--text-primary);
+  --tooltip-text: var(--bg-primary);
+}
+
+/* =============================================================================
+   TEMA OSCURO (DARK)
+   ============================================================================= */
+[data-theme="dark"] {
+  /* Colores Primarios */
+  --primary-color: #4DABF7;
+  --primary-hover: #339AF0;
+  --primary-light: #74C0FC;
+  --primary-dark: #1971C2;
+  
+  /* Colores Secundarios */
+  --secondary-color: #ADB5BD;
+  --success-color: #51CF66;
+  --warning-color: #FFD43B;
+  --danger-color: #FF6B6B;
+  --info-color: #74C0FC;
+  
+  /* Colores de Fondo */
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #2D2D2D;
+  --bg-accent: #0D47A1;
+  --bg-overlay: rgba(18, 18, 18, 0.95);
+  
+  /* Colores de Texto */
+  --text-primary: #E2E8F0;
+  --text-secondary: #CBD5E0;
+  --text-muted: #A0AEC0;
+  --text-inverse: #1A202C;
+  --text-link: var(--primary-light);
+  
+  /* Colores de Bordes */
+  --border-color: #2D3748;
+  --border-light: #4A5568;
+  --border-dark: #1A202C;
+  --border-focus: var(--primary-light);
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+  
+  /* Componentes Específicos */
+  --header-bg: var(--bg-primary);
+  --sidebar-bg: var(--bg-secondary);
+  --panel-bg: var(--bg-tertiary);
+  --button-bg: var(--primary-color);
+  --button-text: var(--text-inverse);
+  --input-bg: var(--bg-secondary);
+  --input-border: var(--border-color);
+  --modal-bg: var(--bg-primary);
+  --tooltip-bg: var(--bg-tertiary);
+  --tooltip-text: var(--text-primary);
+}
+
+/* =============================================================================
+   TEMA AZUL (BLUE)
+   ============================================================================= */
+[data-theme="blue"] {
+  --primary-color: #1E40AF;
+  --primary-hover: #1E3A8A;
+  --primary-light: #3B82F6;
+  --primary-dark: #1E3A8A;
+  
+  --bg-primary: #F0F9FF;
+  --bg-secondary: #E0F2FE;
+  --bg-tertiary: #BAE6FD;
+  --bg-accent: #DBEAFE;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+}
+
+/* =============================================================================
+   TEMA VERDE (GREEN) - NATURE
+   ============================================================================= */
+[data-theme="green"] {
+  --primary-color: #059669;
+  --primary-hover: #047857;
+  --primary-light: #10B981;
+  --primary-dark: #065F46;
+  
+  --bg-primary: #F0FDF4;
+  --bg-secondary: #DCFCE7;
+  --bg-tertiary: #BBF7D0;
+  --bg-accent: #D1FAE5;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+}
+
+/* =============================================================================
+   TEMA PÚRPURA (PURPLE) - CREATIVITY
+   ============================================================================= */
+[data-theme="purple"] {
+  --primary-color: #7C3AED;
+  --primary-hover: #6D28D9;
+  --primary-light: #A78BFA;
+  --primary-dark: #5B21B6;
+  
+  --bg-primary: #FAF5FF;
+  --bg-secondary: #F3E8FF;
+  --bg-tertiary: #E9D5FF;
+  --bg-accent: #EDE9FE;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+}
+
+/* =============================================================================
+   TEMA SOLAR (SOLAR) - WARM
+   ============================================================================= */
+[data-theme="solar"] {
+  --primary-color: #EA580C;
+  --primary-hover: #C2410C;
+  --primary-light: #FB923C;
+  --primary-dark: #9A3412;
+  
+  --bg-primary: #FFFBEB;
+  --bg-secondary: #FEF3C7;
+  --bg-tertiary: #FDE68A;
+  --bg-accent: #FEF3C7;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+}
+
+/* =============================================================================
+   VARIABLES SEMÁNTICAS - COMPONENTES
+   ============================================================================= */
+
+/* Navegación y Header */
+.navbar, .header, .top-bar {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+/* Sidebar */
+.sidebar, .navigation {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+/* Paneles y Contenedores */
+.panel, .card, .widget {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-primary);
+}
+
+/* Botones */
+.btn, .button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-bg);
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+}
+
+.btn:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+/* Inputs y Formularios */
+input, textarea, select {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  padding: var(--spacing-sm) var(--spacing);
+  transition: border-color var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1);
+  outline: none;
+}
+
+/* Tabs */
+.tab {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing);
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+}
+
+.tab.active {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+.tab:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* Modal y Overlays */
+.modal, .dialog {
+  background: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Tooltip */
+.tooltip {
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  border-radius: var(--radius);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 2px solid var(--border-color);
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* =============================================================================
+   UTILIDADES DE TEMA
+   ============================================================================= */
+.theme-transition * {
+  transition: background-color var(--transition), 
+              color var(--transition), 
+              border-color var(--transition),
+              box-shadow var(--transition);
+}
+
+/* Variantes de tema */
+.theme-light { 
+  color-scheme: light;
+}
+
+.theme-dark { 
+  color-scheme: dark;
+}
+
+/* =============================================================================
+   ANIMACIONES Y TRANSICIONES
+   ============================================================================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fade-in { animation: fadeIn 0.3s ease-in-out; }
+.slide-in { animation: slideIn 0.3s ease-out; }
+.scale-in { animation: scaleIn 0.2s ease-out; }
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+@media (max-width: 768px) {
+  :root {
+    --spacing: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --font-size-base: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing: 0.5rem;
+    --spacing-lg: 0.75rem;
+    --font-size-base: 0.8rem;
+  }
+}
+
+/* =============================================================================
+   ACCESIBILIDAD
+   ============================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-primary: #000000;
+    --bg-primary: #FFFFFF;
+  }
+  
+  [data-theme="dark"] {
+    --border-color: #FFFFFF;
+    --text-primary: #FFFFFF;
+    --bg-primary: #000000;
+  }
+}
